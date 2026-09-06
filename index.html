@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#05040d">
+<title>Для Златы ✦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<canvas id="stars"></canvas><canvas id="visualizer"></canvas>
+<div class="aurora a1"></div><div class="aurora a2"></div><div class="aurora a3"></div>
+<div class="nebula"></div><div class="grain"></div><div id="meteorLayer"></div>
+<button class="theme" id="theme" aria-label="Сменить атмосферу">☾</button>
+
+<main class="shell">
+<section class="card intro" id="intro">
+  <div class="eyebrow"><i></i> маленькое послание для Златы <span>✦</span></div>
+  <h1>Злата<em>✦</em></h1>
+  <div class="intro-line"></div>
+  <p class="lead">Иногда одно случайное знакомство оказывается совсем не случайным.</p>
+  <p class="sub">Спасибо тебе за разговоры, моменты, смех и за то, что однажды ты появилась в моей Вселенной.</p>
+  <button class="cta" id="thanks"><span>Открыть музыку</span><b>↗</b></button>
+  <div class="hint">нажми — и пусть эта история начнётся с первой ноты</div>
+  <div class="intro-stars"><span>✦</span><span>·</span><span>✧</span><span>·</span><span>✦</span></div>
+</section>
+
+<section class="card player hidden" id="player">
+  <div class="player-top">
+    <div class="eyebrow"><i></i> для Златы</div>
+    <div class="status-pill"><span></span><b id="status">готово</b></div>
+  </div>
+
+  <div class="hero-track">
+    <div class="cover-orbit" id="coverOrbit">
+      <div class="orbit-glow"></div><div class="orbit-ring r1"></div><div class="orbit-ring r2"></div>
+      <div class="orbit-dot"></div>
+      <div class="disc"><div class="disc-shine"></div><div class="disc-label"><span>Цветок</span><small>✦</small></div></div>
+    </div>
+    <div class="track-meta">
+      <div class="track-kicker">soundtrack for one little universe</div>
+      <div class="title">Цветок</div><div class="artist">MORGENSHTERN</div>
+      <div class="tag">a little piece of starlight</div>
+      <div class="mood"><span>✦</span><span>ночь</span><span>•</span><span>музыка</span><span>•</span><span>воспоминания</span></div>
+    </div>
+    <button class="play" id="play" aria-label="Воспроизвести"><span class="play-icon">▶</span><span class="play-ripple"></span></button>
+  </div>
+
+  <div class="visualizer-shell">
+    <div class="viz-head"><span>живой звук</span><span id="soundState">audio ready</span></div>
+    <div class="bars" id="bars"></div>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="bar" id="bar"><div class="fill" id="fill"></div><i id="thumb"></i></div>
+    <div class="times"><span id="now">0:00</span><span id="total">0:00</span></div>
+  </div>
+
+  <div class="lyrics-label"><span>сейчас звучит</span><span class="chorus-badge" id="chorusBadge">✦ припев</span></div>
+  <div class="lyrics-frame">
+    <div class="lyrics-viewport" id="lyricsViewport"><div class="lyrics-track" id="lyricsTrack"></div></div>
+    <div class="lyric-focus"></div><div class="fade fade-top"></div><div class="fade fade-bottom"></div>
+  </div>
+
+  <div class="sync-panel">
+    <span>синхронизация</span><button data-sync="-0.1">−0.1</button><strong id="syncValue">-0.3s</strong><button data-sync="0.1">+0.1</button><button class="sync-reset" id="syncReset">сброс</button>
+  </div>
+
+  <div class="timeline-title"><span>моменты этой песни</span><small>нажми на точку</small></div>
+  <div class="timeline" id="timeline"></div>
+  <div class="moment" id="moment"><span id="momentIcon">✦</span><span id="momentText">каждая песня хранит свои маленькие моменты</span></div>
+
+  <div class="controls">
+    <label class="volume"><span>громкость</span><input id="volume" type="range" min="0" max="1" step=".01" value=".72"></label>
+    <button class="ghost" id="restart">↺ с начала</button><button class="ghost" id="restart2">заново</button>
+  </div>
+  <div class="keyboard"><kbd>SPACE</kbd> play <span>·</span> <kbd>←</kbd><kbd>→</kbd> ±5 сек <span>·</span> <kbd>M</kbd> звук</div>
+  <audio id="audio" preload="auto" playsinline controlslist="nodownload noplaybackrate" src="assets/song.mp3" type="audio/mpeg"></audio>
+</section>
+</main>
+
+<div class="secret-toast" id="toast"></div>
+<div class="ending hidden" id="ending" aria-hidden="true">
+  <div class="ending-stars"></div><div class="ending-orb"></div>
+  <div class="ending-content"><div class="ending-kicker">последняя нота</div><h2>Спасибо, что дослушала.</h2><div class="ending-rule">✦</div><p>Некоторые песни заканчиваются.<br><em>Некоторые чувства — нет.</em></p><button id="again">♡ начать сначала</button></div>
+</div>
+<footer>made with a little bit of starlight <span>✦</span></footer>
+<script src="script.js"></script>
+</body></html>
